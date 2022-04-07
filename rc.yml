@@ -1,0 +1,18 @@
+apiVesion: v1
+kind: ReplicationController
+metadata:
+  name: nginx-rc
+spec:
+   replicas: 3
+   selector: 
+     app: nginx
+   template:
+     metadata:
+       labels:
+         app: nginx
+     spec:
+       containers: 
+       - name: mynginx-container
+         images: nginx
+         ports:
+         - containerPort: 80
